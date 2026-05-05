@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+<meta charset="UTF-8">
+<title> Employee Details Form</title>
+<style>
+
+body {
+margin: 0;
+font-family: Arial, sans-serif;
+background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+color: #fff;
+
+}
+.container{
+width:400px;
+margin: 50px auto;
+padding:30px;
+border-radius:15px;
+background:(255,255,255,0.5);
+box-shadow: 0.8px 32px rgba(0,0,0,0.5)
+
+}
+
+h2{
+ text-align: center;
+ color: cyan;
+
+	}
+
+input,select {
+	width:100%;
+	padding:10px;
+	margin-top:10px;
+	border-radius: 8px;
+	border: none;
+ 	background: rgba(255,255,255,0.1);
+	color: white;
+}
+
+button{
+	width:100%
+	padding:12px;
+	margin-top: 20px;
+	border-radius:8px;
+	border:none
+	background: cyan;
+	font-weight: bold;
+	cursor:pointer
+	
+}
+select{
+background-color:pink;
+}
+
+.dashboard-btn{
+width: 100%
+padding: 12px;
+margin-top:10px;
+border-radius:8px;
+border:none;
+background:cyan;
+font-weight:bold;
+cursor:pointer;
+}
+</style>
+
+</head>
+<body>
+<div class="container">
+<h2>Employee Details </h2>
+
+<form action ="/submit" method="post">
+
+<input type ="text" name="name" placeholder="Full Name" required>
+<input type ="email" name="email" placeholder="email" required>
+<input type ="tel" name="phone" placeholder="Phone" required>
+<select name ="department" >
+<option>HR</option>
+<option>IT</option>
+<option>Finance</option>
+</select>
+<input type ="text" name="designation" placeholder="Designation" required>
+<input type ="number" name="salary" placeholder="salary">
+<input type ="date" name="joining_date">
+<button type="submit">submit</button>
+</form>
+
+</div>
+<button type="button" class ="dashboard-btn" onclick ="location.href='/dashboard'">
+view Dashboard
+</button>
+
+
+
+
+</body>
+</html>

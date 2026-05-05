@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Dashboard</title>
+
+<style>
+
+body{
+ background: #0a0a0a;
+ color: white;
+ font-family: Arial;
+ margin: 0;
+
+}
+
+h1{
+ text-align: center;
+ color: cyan;
+
+}
+
+.dashboard{
+ display: flex;
+ justify-content: center;
+ gap: 40px;
+ margin: 20px auto;
+ width: 90%;
+
+}
+
+
+.left, .right{
+width: 48%;
+
+}
+
+.plotly-chart{
+margin: 20px;
+padding: 10px;
+background: rgba(255, 255, 255, 0.5);
+border-radius: 10px;
+box-shadow: 0 0 10px cyan;
+
+}
+
+.table{
+width: 90%;
+margin: 40px auto;
+border-collapse: collapse;
+#border-radius: 10px;
+background: rgba(255, 255, 255, 0.5);
+box-shadow: 0 0 10px cyan;
+}
+
+
+.th{
+background: cyan;
+color: black;
+
+}
+
+.th, .td{
+ padding: 10px;
+ text-align: center;
+}
+
+
+
+tr:hover{
+background: rgba(255, 255, 255, 0.02);
+
+}
+
+</style>
+</head>
+
+<body>
+
+
+
+<h1> Employee-Dashboard</h1>
+
+<div class="dashboard">
+  <div class="left">
+	<div class="plotly-chart"> 
+          {{ salary_chart | safe }}
+        </div>
+
+   <div class="plotly-chart">
+       {{join_chart  | safe}}
+     </div>
+
+      </div>
+
+<div class="right">
+	<div class="plotly-chart"> 
+          {{ salary_chart | safe }}
+        </div>
+
+<div class ="plotly-chart">
+ {{desig_chart |safe }}
+</div>
+</div>
+</div>
+
+
+<table>
+<tr>
+<th>Name</th>
+<th>Email</th>
+<th>Phone</th>
+<th>Department</th>
+<th>Designation</th>
+<th>salary</th>
+<th>Joining Date</th>
+</tr>
+
+{% for emp in employees %}
+<tr>
+<td>{{emp[0]}}</td>
+<td>{{emp[1]}}</td>
+<td>{{emp[2]}}</td>
+<td>{{emp[3]}}</td>
+<td>{{emp[4]}}</td>
+<td>{{emp[5]}}</td>
+<td>{{emp[6]}}</td>
+</tr>
+
+{% endfor %}
+</table>
+</body>
+</html>
+
