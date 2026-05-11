@@ -44,27 +44,23 @@ box-shadow: 0 0 10px cyan;
 
 }
 
-.table{
+table{
 width: 90%;
 margin: 40px auto;
 border-collapse: collapse;
-#border-radius: 10px;
-background: rgba(255, 255, 255, 0.5);
+background: rgba(255,255,255,0.5);
 box-shadow: 0 0 10px cyan;
 }
 
-
-.th{
+th{
 background: cyan;
 color: black;
-
 }
 
-.th, .td{
- padding: 10px;
- text-align: center;
+th, td{
+padding: 10px;
+text-align: center;
 }
-
 
 
 tr:hover{
@@ -82,28 +78,32 @@ background: rgba(255, 255, 255, 0.02);
 <h1> Employee-Dashboard</h1>
 
 <div class="dashboard">
+
   <div class="left">
-	<div class="plotly-chart"> 
-          {{ salary_chart | safe }}
-        </div>
 
-   <div class="plotly-chart">
-       {{join_chart  | safe}}
-     </div>
+    <div class="plotly-chart"> 
+      {{ salary_chart | safe }}
+    </div>
 
-      </div>
+    <div class="plotly-chart">
+      {{ join_chart | safe }}
+    </div>
 
-<div class="right">
-	<div class="plotly-chart"> 
-          {{ salary_chart | safe }}
-        </div>
+  </div>
 
-<div class ="plotly-chart">
- {{desig_chart |safe }}
+  <div class="right">
+
+    <div class="plotly-chart"> 
+      {{ dept_chart | safe }}
+    </div>
+
+    <div class="plotly-chart">
+      {{ desig_chart | safe }}
+    </div>
+
+  </div>
+
 </div>
-</div>
-</div>
-
 
 <table>
 <tr>
