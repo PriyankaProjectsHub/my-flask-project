@@ -2,6 +2,7 @@ from dotenv import load_dotenv
 import os
 
 load_dotenv()
+
 from flask import Flask, render_template, request
 import mysql.connector
 import plotly.express as px
@@ -11,10 +12,10 @@ app = Flask(__name__)
 
 # Database connection
 db = mysql.connector.connect(
-    host='localhost',
-    user='root',
-    password='root',
-    database='company'
+    host=os.getenv("DB_HOST"),
+    user=os.getenv("DB_USER"),
+    password=os.getenv("DB_PASSWORD"),
+    database=os.getenv("DB_NAME")
 )
 
 cursor = db.cursor()
@@ -64,6 +65,7 @@ def dashboard():
     
     dept_count = Counter(department)
     desig_count = Counter(designation)
+    salary_count = Counter(designation)
     join_count = Counter(joining_date)
     
 
@@ -77,7 +79,7 @@ def dashboard():
     fig_desig = px.pie(
       names= list(desig_count.keys()),
       values= list(desig_count.values()),
-      title =  "Designation Wise Employees count" 
+      title =  "Designation Wise Employees" 
     )
     fig_desig.update_layout(template=None)
     
